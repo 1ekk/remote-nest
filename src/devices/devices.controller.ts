@@ -5,7 +5,7 @@ import { CreateDeviceDto } from './dto/create-device.dto';
 @Controller('devices')
 export class DevicesController {
 
-    constructor(private deviceService: DeviceService) {}
+    constructor(private readonly deviceService: DeviceService) {}
 
     @Post()
     createDevice(@Body() deviceDto: CreateDeviceDto) {

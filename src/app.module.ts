@@ -4,6 +4,8 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { DevicesModule } from './devices/devices.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { getPostgresConfig } from './config/postgres.config';
+import { NetworkModule } from './network/network.module';
+import { WebsocketsModule } from './websockets/websockets.module';
 
 
 @Module({
@@ -14,6 +16,8 @@ import { getPostgresConfig } from './config/postgres.config';
         SequelizeModule.forRootAsync({imports: [ConfigModule], inject: [ConfigService], useFactory: getPostgresConfig}),
         DevicesModule,
         ButtonsModule,
+        NetworkModule,
+        WebsocketsModule
     ],
     controllers: [],
     providers: []
